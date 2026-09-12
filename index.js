@@ -28,6 +28,9 @@ let renderStarted = false;
 
 let playerId = 0;
 
+// Number of lines in current render
+let renderedLines = 0;
+
 
 // -----------------------------
 // START
@@ -396,10 +399,6 @@ function redraw(output) {
 
   renderStarted = true;
 }
-
-
-// Number of lines in current render
-let renderedLines = 0;
 
 
 // =====================================================
