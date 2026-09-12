@@ -118,49 +118,6 @@ process.stdin.on("data", async (input) => {
 // =====================================================
 
 async function handleEnter() {
-
-  // --------------------------------
-  // Same song is currently playing
-  // --------------------------------
-
-  if (
-    currentAudio &&
-    currentSongIndex === selected
-  ) {
-
-    // Pause
-    if (currentAudio.playing) {
-
-      currentAudio.pause();
-
-      isPlaying = false;
-      isPaused = true;
-
-      showSongs();
-
-      return;
-    }
-
-
-    // Resume
-    if (currentAudio.paused) {
-
-      currentAudio.resume();
-
-      isPlaying = true;
-      isPaused = false;
-
-      showSongs();
-
-      return;
-    }
-  }
-
-
-  // --------------------------------
-  // Different song
-  // --------------------------------
-
   await playSong(selected);
 }
 
