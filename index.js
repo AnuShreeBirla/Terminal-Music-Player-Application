@@ -101,10 +101,10 @@ process.stdin.on("data", async (input) => {
 
   if (input === " ") {
     if (currentAudio) {
-      if (currentAudio.playing) {
-        currentAudio.pause();
-      } else if (currentAudio.paused) {
+      if (currentAudio.paused) {
         currentAudio.resume();
+      } else if (currentAudio.playing) {
+        currentAudio.pause();
       }
 
       showSongs();
