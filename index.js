@@ -90,8 +90,25 @@ process.stdin.on("data", async (input) => {
   // ENTER
   // ---------------------------
 
-  if (input === "\r") {
+  if (input === "\r" || input === "\n") {
     await handleEnter();
+  }
+
+
+  // ---------------------------
+  // SPACE
+  // ---------------------------
+
+  if (input === " ") {
+    if (currentAudio) {
+      if (currentAudio.playing) {
+        currentAudio.pause();
+      } else if (currentAudio.paused) {
+        currentAudio.resume();
+      }
+
+      showSongs();
+    }
   }
 });
 
